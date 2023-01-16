@@ -1,0 +1,40 @@
+<h1 class="text-center text-primary">Formulario de Registro</h1>
+<main>
+  <!-- formulario -->
+  <article class="form-container">
+    <form>
+      <h3 class="text-success">User</h3>
+      <label for="nombres">Nombre</label>
+      <input type="text" placeholder="nombres" name="nombre" [(ngModel)]="nom">
+      <label for="apellidos">Apellido</label>
+      <input type="text" placeholder="apellidos" name="apellido" [(ngModel)]="ape">
+      <label for="carrera">Carrera</label>
+      <input type="text" placeholder="carrera" name="carrera" [(ngModel)]="carr">
+      <button class="btn btn-primary" (click)="Agregar()" [disabled]="habilitar()">Agregar</button>
+    </form>
+  </article>
+  <!-- tabla -->
+  <article class="table-container">
+    <h2 >Registro</h2>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Nombres</th>
+          <th>Apellidos</th>
+          <th>Carrera</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let fila of datos; let i = index in datos">
+          <td>{{fila.Nombre}}</td>
+          <td>{{fila.Apellidos}}</td>
+          <td>{{fila.Carrera}}</td>
+          <td>
+            <button class="btn btn-danger" value={{i}} (click)="Eliminar(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </article>
+
+</main>
